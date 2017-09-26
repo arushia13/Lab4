@@ -8,19 +8,40 @@
  * 5. Remove unnecessary comments as appropriate
  */
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
-         */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
+/**
+ *This class has a function that finds the larger of two Strings that searches
+ *for a String, and if that isn't available, finds the largest instance of that
+ *String available.
+ */
+public class ReclamationProject {
+
+    /**
+     *
+     * @param a input variable
+     * @param b input variable
+     * @return r string variable
+     */
+
+    static String doit(final String a, final String b) {
+        String r = "";
+        String str1;
+        String str2;
+
+        if (a.compareTo(b) > 0) {
+            str1 = a; // makes str1 the longer string
+            str2 = b;
+        } else {
+            str1 = b;
+            str2 = a;
+        }
+
+        for (int i = 0; i < str1.length(); i++) {
+            for (int j = str1.length() - i; j > 0; j--) {
+                for (int k = 0; k < str2.length() - j; k++) {
+                    if ((a.regionMatches(i, b, k, j) && j > r.length())) {
+                        r = a.substring(i, i + j);
+                    }
+                }
+            }
         } return r; }
 }
